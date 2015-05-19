@@ -43,8 +43,13 @@ function PostCode(codestring) {
   post_req.end();
 
 }
-
-PostCode('');
+var i = o;
+while(i<10)
+{
+  PostCode('');
+  sleep(5000);
+  i++;
+}
 /*
 // This is an async file read
 fs.readFile('LinkedList.js', 'utf-8', function (err, data) {
