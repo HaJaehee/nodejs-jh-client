@@ -43,13 +43,13 @@ function PostCode(codestring) {
   post_req.end();
 
 }
-var i = o;
-while(i<10)
-{
-  PostCode('');
-  sleep(5000);
-  i++;
-}
+(function reqRepeat(i) {
+  setTimeout(function () {
+    PostCode(''); //http request
+    if (--i) reqRepeat(i); 
+    }, 5000) //every 5 seconds
+})(10); //repeat 10 times
+
 /*
 // This is an async file read
 fs.readFile('LinkedList.js', 'utf-8', function (err, data) {
