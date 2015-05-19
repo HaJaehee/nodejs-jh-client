@@ -46,7 +46,7 @@ function PostCode(codestring) {
 (function reqRepeat(i) {
   setTimeout(function () {
     PostCode(''); //http request
-    if (--i) reqRepeat(i); 
+    if (--i) reqRepeat(i); //for i is non zero
     }, 5000) //every 5 seconds
 })(10); //repeat 10 times
 
