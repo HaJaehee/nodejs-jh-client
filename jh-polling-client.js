@@ -42,12 +42,24 @@ function PostCode() {
   post_req.end();
 
 }
+
+function showObj(obj){
+	var str = "";
+		for(key in obj){
+			str+= key+"="+obj[key]+"\n";
+		}
+
+
+		console.log(str);
+		return;
+}
+
 (function reqRepeat(i) {
-  setTimeout(function () {
-    PostCode(''); //http request
-    if (--i) reqRepeat(i); //for i is non zero
-    }, 5000) //every 5 seconds
-})(10); //repeat 10 times
+   setTimeout(function () {
+		    PostCode(''); //http request
+			     if (--i) reqRepeat(i); //for i is non zero
+				      }, 5000) //every 5 seconds
+	})(10); //repeat 10 times
 
 /*
 // This is an async file read
