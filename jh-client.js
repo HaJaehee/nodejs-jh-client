@@ -1,6 +1,9 @@
 /**
 *jh-client.js
 *Created by HJH on 2015-05-19 at 21:40
+
+*Modified by HJH on 2015-06-01 at 17:35
+*	added user POST data code
 */
 
 
@@ -8,19 +11,15 @@ var querystring = require('querystring');
 var http = require('http');
 //var fs = require('fs');
 
-function PostCode(codestring) {
+function PostCode() {
   // Build the post string from an object
   var post_data = querystring.stringify({
-      'compilation_level' : 'ADVANCED_OPTIMIZATIONS',
-      'output_format': 'json',
-      'output_info': 'compiled_code',
-      'warning_level' : 'QUIET',
-      'js_code' : codestring
-  });
+		device_reg_id : 1234567
+  });//user POST data
 
   // An object of options to indicate where to post to
   var post_options = {
-      host: '192.168.198.128',
+      host: '127.0.0.1',
       port: '8888',
       path: '',
       method: 'POST',
@@ -44,7 +43,24 @@ function PostCode(codestring) {
 
 }
 
-PostCode('');
+function showObj(obj){
+	var str = "";
+		for(key in obj){
+			str+= key+"="+obj[key]+"\n";
+		}
+
+
+		console.log(str);
+		return;
+}
+
+(function reqRepeat(i) {
+   setTimeout(function () {
+		    PostCode(''); //http request
+			     if (--i) reqRepeat(i); //for i is non zero
+				      }, 5000) //every 5 seconds
+	})(10); //repeat 10 times
+
 /*
 // This is an async file read
 fs.readFile('LinkedList.js', 'utf-8', function (err, data) {
