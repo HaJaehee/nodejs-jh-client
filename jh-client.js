@@ -42,7 +42,14 @@ function PostCode() {
   post_req.end();
 
 }
+(function reqRepeat(i) {
+  setTimeout(function () {
+    PostCode(''); //http request
+    if (--i) reqRepeat(i); //for i is non zero
+    }, 5000) //every 5 seconds
+})(10); //repeat 10 times
 
+<<<<<<< HEAD
 function showObj(obj){
 	var str = "";
 		for(key in obj){
@@ -61,6 +68,8 @@ function showObj(obj){
 				      }, 5000) //every 5 seconds
 	})(10); //repeat 10 times
 
+=======
+>>>>>>> origin/master
 /*
 // This is an async file read
 fs.readFile('LinkedList.js', 'utf-8', function (err, data) {
